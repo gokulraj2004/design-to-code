@@ -1,0 +1,185 @@
+/* Dashboard Layout */
+.dashboard-root {
+  --color-primary: #075055;
+  --color-primary-light: #71d8c5;
+  --color-accent: #013a5f;
+  --color-bg: #f4f6f8;
+  --color-sidebar-bg: rgba(255, 255, 255, 0.8);
+  --color-card-bg: linear-gradient(135deg, rgba(222, 240, 255, 0.4) 0%, rgba(255, 255, 255, 0.8) 100%);
+  --color-card-border: #aacbe3;
+  --color-text-primary: #1b2227;
+  --color-text-secondary: #075055;
+  --color-text-muted: #949494;
+  --color-header-bg: rgba(255, 255, 255, 0.95);
+  --color-footer-bg: #f8f8f8;
+  --color-footer-border: #ecf1f6;
+  --color-badge-bg: rgba(170, 203, 227, 0.2);
+  --color-badge-border: #aacbe3;
+  --color-icon-bg: #71d8c5;
+  --color-nav-active-bg: #075055;
+  --color-nav-active-text: #ffffff;
+  --color-nav-text: #1b2227;
+  --color-mvp-bg: #fef3c6;
+  --color-mvp-border: #fde68a;
+  --color-mvp-text: #bb4d00;
+  --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.06);
+  --shadow-floating: 0 4px 6px rgba(0,0,0,0.1), 0 10px 15px rgba(0,0,0,0.1);
+  --sidebar-width: 256px;
+  --header-height: 85px;
+  --transition: 0.25s ease;
+
+  display: flex;
+  min-height: 100vh;
+  background: var(--color-bg);
+  font-family: 'Noto Sans', 'Segoe UI', sans-serif;
+  color: var(--color-text-primary);
+  position: relative;
+}
+
+/* Dark Mode */
+.dashboard-root.dark {
+  --color-bg: #0f1923;
+  --color-sidebar-bg: rgba(15, 25, 35, 0.95);
+  --color-card-bg: linear-gradient(135deg, rgba(7, 80, 85, 0.15) 0%, rgba(20, 35, 50, 0.9) 100%);
+  --color-card-border: #1e3a4a;
+  --color-text-primary: #e8f0f5;
+  --color-text-secondary: #71d8c5;
+  --color-text-muted: #6b8a9a;
+  --color-header-bg: rgba(15, 25, 35, 0.95);
+  --color-footer-bg: #0d1820;
+  --color-footer-border: #1e3a4a;
+  --color-badge-bg: rgba(7, 80, 85, 0.3);
+  --color-badge-border: #075055;
+  --color-nav-text: #c8dde8;
+  --color-nav-active-bg: #075055;
+  --color-nav-active-text: #ffffff;
+  --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+.dashboard-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  transition: margin-left var(--transition);
+}
+
+.dashboard-main.sidebar-open {
+  margin-left: var(--sidebar-width);
+}
+
+.dashboard-main.sidebar-closed {
+  margin-left: 0;
+}
+
+.dashboard-content {
+  flex: 1;
+  padding: 32px;
+  overflow-y: auto;
+}
+
+/* Page Header */
+.dashboard-page-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.dashboard-page-icon {
+  width: 44px;
+  height: 44px;
+  background: var(--color-icon-bg);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--color-primary);
+}
+
+.dashboard-page-info {
+  flex: 1;
+}
+
+.dashboard-page-title {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  margin: 0 0 4px 0;
+  line-height: 32px;
+  letter-spacing: 0.02em;
+}
+
+.dashboard-page-subtitle {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  margin: 0;
+  line-height: 20px;
+}
+
+/* Cards Grid */
+.dashboard-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(440px, 1fr));
+  gap: 24px;
+}
+
+/* Floating AI Button */
+.floating-ai-btn {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #013a5f 0%, #012d4a 100%);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-floating);
+  z-index: 1000;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.floating-ai-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.floating-ai-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 16px;
+  height: 16px;
+  background: #00c950;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .dashboard-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-main.sidebar-open {
+    margin-left: 0;
+  }
+
+  .dashboard-content {
+    padding: 16px;
+  }
+
+  .dashboard-page-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
