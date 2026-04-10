@@ -1,0 +1,122 @@
+.phase-card {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.phase-card:hover {
+  box-shadow: 0 6px 24px rgba(7, 80, 85, 0.12);
+  transform: translateY(-2px);
+}
+
+/* Card Header */
+.phase-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.phase-card-icon-wrap {
+  width: 48px;
+  height: 48px;
+  background: var(--color-icon-bg);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--color-primary);
+}
+
+.phase-card-title-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.phase-card-phase-label {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  line-height: 16px;
+  letter-spacing: 0.05em;
+}
+
+.phase-card-title {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  margin: 0;
+  line-height: 28px;
+  letter-spacing: 0.02em;
+}
+
+/* Description */
+.phase-card-description {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  line-height: 20px;
+  margin: 0;
+}
+
+/* Items List */
+.phase-card-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.phase-card-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 8px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid var(--color-card-border);
+  border-radius: 4px;
+  transition: background 0.15s ease;
+  cursor: pointer;
+}
+
+.phase-card-item:hover {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.phase-card-item-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  line-height: 20px;
+}
+
+.phase-card-item-badge {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  background: var(--color-badge-bg);
+  border: 1px solid var(--color-badge-border);
+  border-radius: 4px;
+  padding: 2px 8px;
+  line-height: 16px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Dark mode */
+.dark .phase-card-item {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.dark .phase-card-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
